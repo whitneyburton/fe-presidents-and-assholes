@@ -1,6 +1,7 @@
 import { isLoading, hasErrored, setPresidents } from '../actions'
 
-export const fetchPresidents = (url) => {
+export const fetchPresidents = () => {
+  const url = 'http://localhost:3001/api/v1/presidents'
   return async (dispatch) => {
     try {
       dispatch(isLoading(true));

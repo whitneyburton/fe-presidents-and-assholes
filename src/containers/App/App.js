@@ -8,8 +8,7 @@ import { CardContainer } from '../../components/CardContainer/CardContainer';
 export class App extends Component {
 
   componentDidMount = () => {
-    const url = 'http://localhost:3001/api/v1/presidents'
-    this.props.fetchPresidents(url)
+    this.props.fetchPresidents()
   }
 
   render() {
@@ -33,8 +32,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  fetchPresidents: (url) => dispatch(fetchPresidents(url)),
-  setPresidents: (presidents) => dispatch(setPresidents(presidents))
+  fetchPresidents: () => dispatch(fetchPresidents())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
