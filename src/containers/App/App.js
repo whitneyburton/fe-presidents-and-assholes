@@ -3,11 +3,12 @@ import './App.css';
 import { connect } from 'react-redux'
 import { setPresidents } from '../../actions';
 import { fetchPresidents } from '../../thunks/fetchPresidents';
+import { CardContainer } from '../../components/CardContainer/CardContainer';
 
 export class App extends Component {
 
   componentDidMount = () => {
-    const url = 'http://localhos:3001/api/v1/presidents'
+    const url = 'http://localhost:3001/api/v1/presidents'
     this.props.fetchPresidents(url)
   }
 
@@ -19,6 +20,7 @@ export class App extends Component {
         <h1>Presidents + Assholes</h1>
         {hasErrored && <h1>Sorry, there was an error fetching the presidents.</h1>}
         {isLoading && <h1>Loading...</h1>}
+        <CardContainer presidents={presidents} />
       </div>
     );
   }
